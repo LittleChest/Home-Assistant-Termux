@@ -105,6 +105,7 @@ do_install() {
   pip install tzdata
   pip install maturin
   pip install setuptools
+  pip install webrtcvad
   MATHLIB=m pip install aiohttp_cors==0.7.0
   MATHLIB=m pip install PyTurboJPEG==1.6.7
   dpkg -i $script_dir/contrib/python-numpy_1.23.2_aarch64.deb || true
@@ -114,7 +115,7 @@ do_install() {
 
   SODIUM_INSTALL=system pip install pynacl
 
-  RUSTFLAGS="-C lto=n" CARGO_BUILD_TARGET="$(rustc -Vv | grep "host" | awk '{print $2}')"  CRYPTOGRAPHY_DONT_BUILD_RUST=1 pip install homeassistant==2023.4.4
+  RUSTFLAGS="-C lto=n" CARGO_BUILD_TARGET="$(rustc -Vv | grep "host" | awk '{print $2}')"  CRYPTOGRAPHY_DONT_BUILD_RUST=1 pip install homeassistant==2023.5.4
 
 }
 
